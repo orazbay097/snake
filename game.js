@@ -38,11 +38,11 @@ const rndPos = table => ({
 
 // Initial state
 const initialState = () => ({
-  cols:  20,
-  rows:  14,
+  cols:  25,
+  rows:  25,
   moves: [EAST],
   snake: [],
-  apple: { x: 16, y: 2 },
+  apple: { x: 24, y: 24 }
 })
 
 const next =  state => ({

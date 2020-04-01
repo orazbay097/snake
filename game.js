@@ -24,9 +24,8 @@ const nextHead  = state => state.snake.length == 0
     x: mod(state.cols)(state.snake[0].x + state.moves[0].x),
     y: mod(state.rows)(state.snake[0].y + state.moves[0].y)
   }
-const nextSnake = state => willCrash(state)
-  ? []
-  : (willEat(state)
+const nextSnake = state => 
+ (willEat(state)
     ? [nextHead(state)].concat(state.snake)
     : [nextHead(state)].concat(dropLast(state.snake)))
 
@@ -50,7 +49,8 @@ const next =  state => ({
     cols: state.cols,
     moves: nextMoves(state),
     snake: nextSnake(state),
-    apple: nextApple(state)
+    apple: nextApple(state),
+    isFinish: willCrash(state)
 })
 
 const enqueue = (state, move) => validMove(move)(state)
